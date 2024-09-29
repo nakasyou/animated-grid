@@ -1,0 +1,24 @@
+{
+  "name": "ruberiot",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "format": "biome check --write"
+  },
+  "dependencies": {
+    "solid-js": "^1.8.20"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.2",
+    "@unocss/preset-uno": "^0.62.4",
+    "@unocss/reset": "^0.62.4",
+    "@unocss/vite": "^0.62.4",
+    "typescript": "^5.5.3",
+    "vite": "^5.4.1",
+    "vite-plugin-solid": "^2.10.2"
+  }
+}
