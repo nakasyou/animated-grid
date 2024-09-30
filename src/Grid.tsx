@@ -11,6 +11,21 @@ export const Grid = (props: {
    * 広がるまでの時間、ms
    */
   time: number
+
+  /**
+   * 色
+   */
+  color: string | (() => string)
+  
+  /**
+   * 線の太さ
+   */
+  weight: number
+
+  /**
+   * class
+   */
+  class?: string
 }) => {
   const [width, setWidth] = createSignal(0)
   const [height, setHeight] = createSignal(0)
@@ -74,7 +89,9 @@ export const Grid = (props: {
 
         for (let x = 0; x < many; x++) {
           ctx.beginPath()
-          ctx.strokeStyle = 'rgba(255, 0, 0, 10)'
+          ctx.strokeStyle =
+            typeof props.color === 'function' ? props.color() : props.color
+          ctx.lineWidth = props.weight
           ctx.strokeRect(
             x * props.size + width() / 2,
             baseY + y * props.size,
@@ -93,5 +110,7 @@ export const Grid = (props: {
     }
     step()
   })
-  return <canvas width={width()} height={height()} ref={canvas} class="opacity-50" />
+  return (
+    <canvas width={width()} height={height()} ref={canvas} class={props.class} />
+  )
 }
