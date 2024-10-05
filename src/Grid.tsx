@@ -36,11 +36,11 @@ export const Grid = (props: {
   onCleanup(() => {
     isCleanuped = true
   })
-  window.addEventListener('resize', () => {
-    setWidth(window.outerWidth)
-    setHeight(window.outerHeight)
-  })
   onMount(() => {
+    window.addEventListener('resize', () => {
+      setWidth(window.outerWidth)
+      setHeight(window.outerHeight)
+    })
     setWidth(window.innerWidth)
     setHeight(window.innerHeight)
   })
@@ -72,7 +72,7 @@ export const Grid = (props: {
 
     const step = () => {
       const now = Date.now()
-      if (scrolledByTime.length * 32 < window.scrollY + window.outerHeight) {
+      if (scrolledByTime.length * props.size < window.scrollY + window.outerHeight) {
         scrolledByTime.push(now)
       }
       const baseY = props.size - (window.scrollY % props.size) - props.size * 3
