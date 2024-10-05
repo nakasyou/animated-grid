@@ -36,11 +36,11 @@ export const Grid = (props: {
   onCleanup(() => {
     isCleanuped = true
   })
-  window.addEventListener('resize', () => {
-    setWidth(window.outerWidth)
-    setHeight(window.outerHeight)
-  })
   onMount(() => {
+    window.addEventListener('resize', () => {
+      setWidth(window.outerWidth)
+      setHeight(window.outerHeight)
+    })
     setWidth(window.innerWidth)
     setHeight(window.innerHeight)
   })
