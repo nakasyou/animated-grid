@@ -72,7 +72,7 @@ export const Grid = (props: {
 
     const step = () => {
       const now = Date.now()
-      if (scrolledByTime.length * 32 < window.scrollY + window.outerHeight) {
+      if (scrolledByTime.length * props.size < window.scrollY + window.outerHeight) {
         scrolledByTime.push(now)
       }
       const baseY = props.size - (window.scrollY % props.size) - props.size * 3
